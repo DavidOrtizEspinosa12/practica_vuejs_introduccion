@@ -2,6 +2,7 @@
 <html>
 
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta charset="utf-8">
         <title>Introducción a VueJS</title>
         <meta name="author" content="">
@@ -11,10 +12,25 @@
 
     <body>
 
-        <h1 id="autor">Autor: David Ortiz</h1>
+        <h1 id="autor">Autor: David Ortiz Espinosa</h1>
 
-        <div class="jumbotron jumbotron-fluid">
-            <h1 id="title">Hola</h1>
+        <div id="app">
+            <div class="jumbotron jumbotron-fluid">
+                <h1 id="title">{{col.collection.title}}</h1>
+            </div>
+
+            <div class="card-group" style="margin: 20px 10px;">
+                <div class="card" v-for="item in col.collection.items">
+                <div class="card-body">
+                    <dl v-for="data in item.data">
+                        <dt>{{data.prompt}}</dt>
+                        <dd>{{data.value}}</dd>
+                    </dl>
+                    <a v-bind:href="item.href" target="_blanck" class="btn btn-primary">Ver</a>
+                </div>
+                </div>
+            </div>
+
         </div>
 
         <script src="https://unpkg.com/vue"></script>
